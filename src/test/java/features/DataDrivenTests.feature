@@ -1,5 +1,7 @@
 @ignore
 Feature: Data driven tests
+
+
   Scenario Outline: get token for user <email>
     Given url 'https://cybertek-reservation-api-qa3.herokuapp.com/'
     And path 'sign'
@@ -12,14 +14,14 @@ Feature: Data driven tests
     And def token = response.accessToken
 
     Examples:
-  | email                       | password           |
-  | sbirdbj@fc2.com             | asenorval          |
-  | htwinbrowb4@blogspot.com    | kanyabang          |
-  | dfrederickb5@yellowbook.com | engraciahuc        |
-  | apainb6@google.co.jp        | rosettalightollers |
-  | fbawmeb7@studiopress.com    | sherilyngohn       |
+      | email                       | password           |
+      | sbirdbj@fc2.com             | asenorval          |
+      | htwinbrowb4@blogspot.com    | kanyabang          |
+      | dfrederickb5@yellowbook.com | engraciahuc        |
+      | apainb6@google.co.jp        | rosettalightollers |
+      | fbawmeb7@studiopress.com    | sherilyngohn       |
 
-
+  @wip
   Scenario Outline: get token for user <email>
     Given url 'https://cybertek-reservation-api-qa2.herokuapp.com/'
     And path 'sign'
@@ -32,7 +34,7 @@ Feature: Data driven tests
     And def token = response.accessToken
 
     Examples:
-  |read('data/users.csv')|
+      | read('data/users.csv') |
 
   Scenario: get user information verification(Database vs API)
     * def DBUtils = Java.type('utilities.DBUtils')
@@ -58,9 +60,6 @@ Feature: Data driven tests
     And match response.firstName == dbResult.firstname
     And match response.lastName == dbResult.lastname
     And match response.role == dbResult.role
-
-
-
 
 
   Scenario Outline: get user information verification(Database vs API) <email>
@@ -90,4 +89,4 @@ Feature: Data driven tests
     And match response.role == dbResult.role
 
     Examples:
-      |read('data/users.csv')|
+      | read('data/users.csv') |
