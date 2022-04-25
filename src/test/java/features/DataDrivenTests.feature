@@ -21,7 +21,7 @@ Feature: Data driven tests
       | apainb6@google.co.jp        | rosettalightollers |
       | fbawmeb7@studiopress.com    | sherilyngohn       |
 
-  @wip
+
   Scenario Outline: get token for user <email>
     Given url 'https://cybertek-reservation-api-qa2.herokuapp.com/'
     And path 'sign'
@@ -35,6 +35,7 @@ Feature: Data driven tests
 
     Examples:
       | read('data/users.csv') |
+
 
   Scenario: get user information verification(Database vs API)
     * def DBUtils = Java.type('utilities.DBUtils')
